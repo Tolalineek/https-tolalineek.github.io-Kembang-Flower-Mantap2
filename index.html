@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kembang Flower Mantap</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            color: teal;
+        }
+        header nav a {
+            margin-left: 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .content {
+            display: flex;
+            flex: 1;
+            padding: 40px;
+            background: #ffffff;
+        }
+        .image {
+            flex: 1;
+            padding: 10px;
+        }
+        .image img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .text {
+            flex: 1;
+            padding: 20px;
+            margin-left: 20px;
+        }
+        .text h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #2d3e50;
+        }
+        .text p {
+            margin: 15px 0;
+            line-height: 1.5;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .nav-buttons button {
+            padding: 10px 20px;
+            border: none;
+            background: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .nav-buttons button:hover {
+            background: #218838;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+        }
+        .pagination span {
+            color: #777;
+            font-size: 16px;
+        }
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 40px 0;
+            padding: 0 40px;
+        }
+        .feature {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .feature h3 {
+            margin-top: 0;
+            color: #2d3e50;
+            font-size: 24px;
+        }
+        .featured-plants {
+            margin: 40px 0;
+            padding: 0 40px;
+        }
+        .featured-plants h2 {
+            font-size: 28px;
+            color: #2d3e50;
+            margin-bottom: 20px;
+        }
+        .plants {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .plant {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1;
+            margin: 10px;
+            max-width: 200px;
+        }
+        .plant img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .sort-options {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .sort-options select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .relax-section {
+            display: flex;
+            padding: 40px;
+            background: #fff;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .relax-text {
+            max-width: 50%;
+            margin-right: 20px;
+        }
+        .relax-text h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        .relax-section img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .shop-section {
+            text-align: center;
+            position: relative;
+            height: 400px; /* Задайте желаемую высоту секции */
+            overflow: hidden;
+        }
+        .shop-background {
+            background-image: url('C:\Users\magic\Desktop\Progect\img\bg-get (1).jpg'); /* Укажите путь к вашему изображению по умолчанию */
+            background-size: cover; /* Заполнение фона */
+            background-position: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white; /* Цвет текста */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Тень текста */
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для улучшения контраста текста */
+        }
+        .shop-button {
+            padding: 15px 30px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .shop-button:hover {
+            background-color: #006f8e;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+        }
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+        .footer-column {
+            flex: 1;
+            margin: 0 20px;
+        }
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer-column p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1></h1>
+    <div>
+        <nav>
+            <a href="#">Sign Up</a>
+            <a href="#">Sign In</a>
+        </nav>
+    </div>
+</header>
+
+<div class="content">
+    <div class="image">
+        <img src="img/pexels-cottonbro-4503751 1.png">
+    </div>
+    <div class="text">
+        <h2>Kembang Flower Mantap</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <div class="nav-buttons">
+            <button>← Kaktus Plant</button>
+            <button>Rahasia Plant →</button>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <span>Previous: Kaktus Plant</span>
+    <span>Next: Rahasia Plant</span>
+</div>
+
+<div class="features">
+    <div class="feature">
+        <h3>Fast Delivery</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.</p>
+    </div>
+    <div class="feature">
+        <h3>Great Customer Service</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.</p>
+    </div>
+    <div class="feature">
+        <h3>Original Plants</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.</p>
+    </div>
+    <div class="feature">
+        <h3>Affordable Price</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.</p>
+    </div>
+</div>
+
+<div class="featured-plants">
+    <h2>Featured Plants</h2>
+    <div class="sort-options">
+        <label for="sort">Sort by:</label>
+        <select id="sort">
+            <option value="cheaper">Cheaper First</option>
+            <option value="expensive">Expensive First</option>
+        </select>
+    </div>
+    <div class="plants">
+        <div class="plant">
+            <img src="img/photo1 (1).jpg" alt="Kaktus Plants">
+            <h4>Kaktus Plants</h4>
+            <p>IDR 85,000</p>
+        </div>
+        <div class="plant">
+            <img src="img/photo2 (1).jpg" alt="Landak Plants">
+            <h4>Landak Plants</h4>
+            <p>IDR 105,000</p>
+        </div>
+        <div class="plant">
+            <img src="img/photo3 (1).jpg" alt="Kecubung Plants">
+            <h4>Kecubung Plants</h4>
+            <p>IDR 85,000</p>
+        </div>
+        <div class="plant">
+            <img src="img/photo4 (1).jpg" alt="Kecubung Plants">
+            <h4>Kecubung Plants</h4>
+            <p>IDR 85,000</p>
+        </div>
+        <div class="plant">
+            <img src="img/photo5.jpg" alt="Kecubung Plants">
+            <h4>Kecubung Plants</h4>
+            <p>IDR 85,000</p>
+        </div>
+    </div>
+</div>
+
+<div class="relax-section">
+    <div class="relax-text">
+        <h2>Buy more plants, it helps you to be relaxed</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi gravida gravida aliquam. Pellentesque et lobortis nisl. Sed et mauris justo. Nulla eu enim non mauris maximus dignissim. Maecenas vitae eros sapien. Quisque pellentesque tempus dignissim.</p>
+        <img src="img/pic1.jpg" alt="Plants display 2" style="margin-bottom: 20px;">
+    </div>
+    <div>
+        <img src="img/pic2.jpg" alt="Plants display 1">
+    </div>
+</div>
+
+<div class="shop-section">
+    <div class="shop-background">
+        <h2>Get your favourites plant on our shop now</h2>
+        <button class="shop-button">Visit Shop</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-section">
+        <div class="footer-column">
+            <h3>PLANTKU</h3>
+            <p>Plantku House</p>
+            <p>JL. Lakida Adisucipto No.51, Demangan, Kec. Depok, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55282</p>
+        </div>
+        <div class="footer-column">
+            <h3>Perusahaan</h3>
+            <p>Tentang Kami</p>
+            <p>Hubungi Kami</p>
+        </div>
+        <div class="footer-column">
+            <h3>Produk</h3>
+            <p>Tanaman</p>
+            <p>Tanaman Lain</p>
+        </div>
+        <div class="footer-column">
+            <h3>Berlannganan dengan Email Kami</h3>
+            <input type="email" placeholder="Masukan Alamat Email" />
+            <button class="shop-button">Подписаться</button>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+
+
